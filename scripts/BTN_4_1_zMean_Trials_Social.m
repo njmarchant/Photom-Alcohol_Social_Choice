@@ -1,5 +1,4 @@
 %% Nathan Marchant July 2024
-% Written for the conflict task
 % This script will calculate the zMean for a given period, defined below
 
 close all

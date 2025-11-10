@@ -1,5 +1,4 @@
-%% Isis Alonso-Lozares 16-06-21 script to combine data from different animals
-% NM updated (with Gemini) for social reward experiment 02-09-25
+% NM (with Gemini) script for social reward experiment 
 
 clear all;
 % close all; % Good practice to close any open figures

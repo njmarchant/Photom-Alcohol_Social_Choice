@@ -1,4 +1,3 @@
-%% Isis Alonso 18-11-20 photometry extraction script
 %% This is the main extraction and plotting script for individual sessions
 %it outputs a at file per session per animal, where you can find the
 %downsampled and filtered data and traces 
@@ -44,7 +43,7 @@ for i = 1:length(files) %iterate through experiment folder
           %col 5 = date
 
 %% SEPARATE DATA TANKS LEFT AND RIGHT SET UPS
-% DOUBLE CHECK THE STORE NAMES FOR THE DATA TANKS!!! One set up did weird stuff 
+
 for l = 1:4  %go through the rats
     if l == 1
         r = names{1};
@@ -107,16 +106,6 @@ for l = 1:4  %go through the rats
     %save raw traces without processing
     sesdat.raw490 = raw490;
     sesdat.raw405 = raw405;
-
-    %% PREPROCESSING
-%     % CLEAN UP - exclude beginning of session when the rat is tethered/5 min wait
-%     tmp = ceil(conversion*exc);
-%     filt490 = raw490(tmp:end);
-%     filt405 = raw405(tmp:end);
-%     ts_adjt = linspace(ts(1), ts(end),  size(filt490, 1))'; %change time vector for all session based on begining exclusion
-%     new_ts = ts(1:tmp);
-%     new_ts(1:end) = ones; %this is to combine with the final data for the trace making
-%     clear tmp
 
 filt490 = raw490;
 filt405 = raw405;

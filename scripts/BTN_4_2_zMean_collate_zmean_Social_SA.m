@@ -1,5 +1,4 @@
 %% Nathan Marchant July 2024
-% Written for the conflict task
 % Collate zmean scores of multiple sessions into a single file per rat  
 % Written for the conflict phase of the experiment
 

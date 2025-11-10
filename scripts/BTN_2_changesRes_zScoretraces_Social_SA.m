@@ -1,5 +1,4 @@
 %% Nathan Marchant July 2024
-% Written for the conflict task
 % A script to make changes in traces, combine them, or add extra info
 % zScoring of the traces is also added at the end of this script
 clear all
