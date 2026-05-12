@@ -21,8 +21,8 @@ for i = 1:length(files) %iterate through experiment folder
     temp2.zmean = [];
 
 % get variables
-    data = sesdat.traces_z(:, 5:end);
-    times = sesdat.traces_z(:, 1:4);
+    data = sesdat.traces_updated(:, 5:end);
+    times = sesdat.traces_updated(:, 1:4);
     condition = sesdat.phase;
     r = sesdat.rat;
     sex = sesdat.sex;
@@ -39,13 +39,13 @@ for i = 1:length(files) %iterate through experiment folder
     lims4 = (time >= 0) & (time <= 10); %limits - 10s cue period
     lims5 = (time >= 10) & (time <= 30); %limits - 20s lever period
     
-    zdata = [];
-    zdata = [times, data];  
+    NOT_zdata = [];
+    NOT_zdata = [times, data];  
 
 
 %calculate mean in cue period from trials where ALCOHOL is chosen
-    cdat = zdata(zdata(:,2) == 3 & zdata(:,4) == 1, 5:end); 
-    temp.zmean.alc_lat = zdata(zdata(:,2) == 3 & zdata(:,4) == 1 & zdata(:,3), 3);
+    cdat = NOT_zdata(NOT_zdata(:,2) == 3 & NOT_zdata(:,4) == 1, 5:end); 
+    temp.zmean.alc_lat = NOT_zdata(NOT_zdata(:,2) == 3 & NOT_zdata(:,4) == 1 & NOT_zdata(:,3), 3);
     
     temp.zmean.alc_BL = mean(cdat(:, lims1), 2);
     temp.zmean.alc_five = mean(cdat(:, lims2), 2);
@@ -60,8 +60,8 @@ for i = 1:length(files) %iterate through experiment folder
 
 
 %% calculate mean in cue period from trials where SOCIAL is chosen
-    cdat =zdata(zdata(:,2) == 3 & zdata(:,4) == 2, 5:end);
-    temp.zmean.soc_lat = zdata(zdata(:,2) == 3 & zdata(:,4) == 2, 3);
+    cdat =NOT_zdata(NOT_zdata(:,2) == 3 & NOT_zdata(:,4) == 2, 5:end);
+    temp.zmean.soc_lat = NOT_zdata(NOT_zdata(:,2) == 3 & NOT_zdata(:,4) == 2, 3);
     
     temp.zmean.soc_BL = mean(cdat(:, lims1), 2);
     temp.zmean.soc_five = mean(cdat(:, lims2), 2);
@@ -76,7 +76,7 @@ for i = 1:length(files) %iterate through experiment folder
  
    
 %% calculate auc and mean in cue period from OMITTED trials 
-    cdat =zdata(zdata(:,2) == 3 & zdata(:,4) == 0, 5:end);
+    cdat =NOT_zdata(NOT_zdata(:,2) == 3 & NOT_zdata(:,4) == 0, 5:end);
      
     temp.zmean.omit_BL = mean(cdat(:, lims1), 2);
     temp.zmean.omit_five = mean(cdat(:, lims2), 2);
@@ -101,8 +101,8 @@ for i = 1:length(files) %iterate through experiment folder
     temp2.zmean.collated_omit = [temp.zmean.omit_BL, temp.zmean.omit_five, temp.zmean.omit_ten, temp.zmean.omit_cue, temp.zmean.omit_lever];
 
 
-    sesdat.zmean = [];
-    sesdat.zmean = [sesdat.zmean, temp2.zmean];
+    sesdat.NOT_zmean = [];
+    sesdat.NOT_zmean = [sesdat.NOT_zmean, temp2.zmean];
     
     save([filePath '\' files(i).name(1:end-4) '.mat'], 'sesdat')
  

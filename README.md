@@ -1,12 +1,12 @@
 # Photom-Alcohol_Social_Choice
-Analysis pipeline used for paper titled "Anterior insula activity during alcohol and social reward self-administration and choice in male and female rats" Submitted October, 2025
+Analysis pipeline used for paper titled "Anterior insula activity during alcohol and social reward self-administration and choice in male and female rats" Published April, 2026 in The Journal of Neuroscience
 
 > **Associated Publication:**
 > Title: Anterior insula activity during alcohol and social reward self-administration and choice in male and female rats
 > Authors: Yvar van Mourik, Dustin Schetters, Ilse Bassie, Mohamad El Samadhi, Huib Mansvelder, Taco J. De Vries, Nathan J. Marchant
 > Journal: The Journal of Neuroscience
-> Year: 2025
-> DOI: coming soon
+> Year: 2026
+> DOI: https://doi.org/10.1523/JNEUROSCI.1180-25.2026
 
 This repository contains the analysis code and figures for the publication listed above. 
 1. BTN_1_ extracts the data and divides them into traces based on the timestamps saved by TDT.
